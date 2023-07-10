@@ -1,7 +1,9 @@
-import { displayBookSection, displayNewBooksSection, displayContactSection, displayAllSections } from './modules/display-section.js';
-import  { printDateTime }  from './modules/date.js';
-import  BookLibrary  from './modules/book-library.js';
-  
+import {
+  displayBookSection, displayNewBooksSection, displayContactSection, displayAllSections,
+} from './modules/display-section.js';
+import { printDateTime } from './modules/date.js';
+import BookLibrary from './modules/book-library.js';
+
 let bookLibrary;
 
 function initializePage() {
@@ -17,10 +19,10 @@ document.getElementById('addBtn').addEventListener('click', () => {
   }
 });
 
-let list = document.getElementById('list-link');
-let addBook = document.getElementById('add-link');
-let contact = document.getElementById('contact-link');
-let front = document.getElementById('front');
+const list = document.getElementById('list-link');
+const addBook = document.getElementById('add-link');
+const contact = document.getElementById('contact-link');
+const front = document.getElementById('front');
 
 list.addEventListener('click', displayBookSection);
 addBook.addEventListener('click', displayNewBooksSection);

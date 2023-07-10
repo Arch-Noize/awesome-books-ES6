@@ -1,22 +1,22 @@
-import { Storage } from "./storage.js";
-import { BookEntry } from "./book-entry.js";
+import Storage from './storage.js';
+import BookEntry from './book-entry.js';
 
 export default class BookLibrary {
-    constructor() {
-      this.titleInput = document.getElementById('title');
-      this.authorInput = document.getElementById('author');
-      this.addBtn = document.getElementById('addBtn');
-      this.output = document.getElementById('output');
-      this.errorMsg = document.getElementById('error-msg');
-      this.books = Storage.loadData('books') || [];
-  
-      this.display();
-      this.addBtn.addEventListener('click', this.handleClick.bind(this));
-    }
-  
+  constructor() {
+    this.titleInput = document.getElementById('title');
+    this.authorInput = document.getElementById('author');
+    this.addBtn = document.getElementById('addBtn');
+    this.output = document.getElementById('output');
+    this.errorMsg = document.getElementById('error-msg');
+    this.books = Storage.loadData('books') || [];
+
+    this.display();
+    this.addBtn.addEventListener('click', this.handleClick.bind(this));
+  }
+
     display = () => {
       this.output.innerHTML = '';
-  
+
       if (this.books.length === 0) {
         const messageElement = document.createElement('p');
         messageElement.textContent = 'No book has been added yet.';
@@ -33,19 +33,19 @@ export default class BookLibrary {
           this.output.appendChild(bookElement);
         });
       }
-  
+
       if (Object.keys(this.books).length === 0) {
         this.output.classList.remove('container');
       } else {
         this.output.classList.add('container');
       }
-  
+
       const removeButtons = this.output.getElementsByClassName('remove-button');
       Array.from(removeButtons).forEach((button) => {
         button.addEventListener('click', this.handleRemove.bind(this));
       });
     }
-  
+
     handleClick = (event) => {
       event.preventDefault();
       const titleValue = this.titleInput.value;
@@ -62,11 +62,11 @@ export default class BookLibrary {
         this.errorMsg.textContent = 'Please make sure to fill both the title and author.';
       }
     }
-  
+
     handleRemove = (event) => {
       const { index } = event.target.dataset;
       this.books.splice(index, 1);
       Storage.saveData('books', this.books);
       this.display();
     }
-  }
+}

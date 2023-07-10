@@ -3,10 +3,10 @@ export const displayAllSections = () => {
   sections.forEach((section) => {
     section.style.display = 'flex';
   });
-  if (bookLibrary) {
-    bookLibrary.display();
+  if (window.bookLibrary) {
+    window.bookLibrary.display();
   }
-}
+};
 
 export const displayBookSection = () => {
   const sections = document.querySelectorAll('section');
@@ -17,10 +17,10 @@ export const displayBookSection = () => {
       section.style.display = 'none';
     }
   });
-  if (bookLibrary) {
-    bookLibrary.display();
+  if (window.bookLibrary) {
+    window.bookLibrary.display();
   }
-}
+};
 
 export const displayNewBooksSection = () => {
   const sections = document.querySelectorAll('section');
@@ -31,7 +31,7 @@ export const displayNewBooksSection = () => {
       section.style.display = 'none';
     }
   });
-}
+};
 
 export const displayContactSection = () => {
   const sections = document.querySelectorAll('section');
@@ -42,4 +42,4 @@ export const displayContactSection = () => {
       section.style.display = 'none';
     }
   });
-}
+};
