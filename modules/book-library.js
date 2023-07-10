@@ -29,7 +29,7 @@ export default class BookLibrary {
           bookElement.innerHTML = `
             "${book.title}" by ${book.author}
             <button class="remove-button" data-index="${index}">Remove</button>`;
-          bookElement.style.backgroundColor = index % 2 === 0 ? '#dfd8ab' : '#e9f1de';
+          bookElement.style.backgroundColor = index % 2 === 0 ? '#ababab' : '#fff';
           this.output.appendChild(bookElement);
         });
       }
